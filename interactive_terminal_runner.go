@@ -40,9 +40,11 @@ func (r *terminalRunner) Exec(programme string, args string) error {
 	}
 
 	c := exec.Command(r.execPath, "-c", fmt.Sprintf("%s %s", programmeExec, args))
+
 	c.Stdin = os.Stdin
 	c.Stdout = os.Stdout
 	c.Stderr = os.Stderr
+
 	if err = c.Run(); err != nil {
 		return err
 	}
