@@ -12,9 +12,9 @@ Basic
 ```go
     runner, err := interactive_terminal_runner.NewTerminalRunner()
 
-	if err != nil {
-		log.Fatalln(err)
-	}
+    if err != nil {
+        log.Fatalln(err)
+    }
 
     if err = runner.Exec("gpg", "-c /a/file/location.txt"); err != nil {
         log.Fatalln(err)
@@ -25,9 +25,9 @@ Custom Exec Path
 ```go
     runner, err := interactive_terminal_runner.NewTerminalRunner(interactive_terminal_runner.WithCustomExecPath("sh"))
 
-	if err != nil {
-		log.Fatalln(err)
-	}
+    if err != nil {
+	log.Fatalln(err)
+    }
 
     if err = runner.Exec("gpg", "-c /a/file/location.txt"); err != nil {
         log.Fatalln(err)
