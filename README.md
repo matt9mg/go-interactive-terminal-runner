@@ -3,7 +3,7 @@ Runs other programmes in the terminal in an interactive fashion
 
 ### Installation
 ```
-go get github.com/rawnet/go-interactive-terminal-runner
+go get github.com/matt9mg/go-interactive-terminal-runner
 ```
 
 ### Usage
