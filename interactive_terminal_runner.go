@@ -12,6 +12,7 @@ type terminalRunner struct {
 	execPath string
 }
 
+// NewTerminalRunner takes customer runner config and returns a terminal runner or an error
 func NewTerminalRunner(cfgs ...TerminalRunnerOptsFunc) (*terminalRunner, error) {
 	path, err := exec.LookPath("bash")
 
@@ -32,6 +33,10 @@ func NewTerminalRunner(cfgs ...TerminalRunnerOptsFunc) (*terminalRunner, error) 
 	return tr, nil
 }
 
+// Exec takes the programme you wish to run and its args and executes the programme
+// an error is returned if an error occurs
+// example programme = docker
+// args are what is passed to the programme
 func (r *terminalRunner) Exec(programme string, args string) error {
 	programmeExec, err := r.getExecPath(programme)
 
@@ -66,6 +71,8 @@ func (r *terminalRunner) Exec(programme string, args string) error {
 	return nil
 }
 
+// WithCustomExecPath takes a programme such as sh and will run the entire process via that instead
+// Defaults to bash
 func WithCustomExecPath(programme string) TerminalRunnerOptsFunc {
 	return func(r *terminalRunner) error {
 		execPath, err := r.getExecPath(programme)
